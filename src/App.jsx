@@ -39,7 +39,7 @@ export default function App() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/hero.png')" }}
         />
-        <div className="absolute inset-0 bg-on-surface/30" />
+        <div className="absolute inset-0 bg-on-surface/" />
 
         <div className="max-w-[1400px] mx-auto w-full relative z-10">
           <div className="flex items-center gap-3 mb-8 md:mb-12">
@@ -61,9 +61,7 @@ export default function App() {
             </p>
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
               <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contact"
                 className="inline-block text-center px-6 py-4 bg-on-primary text-on-surface text-body-md font-medium hover:bg-accent hover:text-on-primary transition-colors"
               >
                 Start my journey
@@ -117,7 +115,7 @@ export default function App() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/approach.png')" }}
         />
-        <div className="absolute inset-0 bg-on-surface/60" />
+        <div className="absolute inset-0 bg-on-surface/45" />
 
         <div className="max-w-[900px] mx-auto relative z-10">
           <div className="flex items-center gap-3 mb-10 md:mb-14">

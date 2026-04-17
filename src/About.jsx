@@ -25,7 +25,7 @@ export default function About() {
       className="w-full h-full object-cover object-top"
     />
     {/* Gradient blend — black fades from left edge into the photo */}
-    <div className="absolute inset-0 bg-gradient-to-r from-on-surface via-on-surface/70 to-transparent" />
+    <div className="absolute inset-0 bg-gradient-to-r from-on-surface via-on-surface/10 to-transparent" />
   </div>
 
   {/* Text on the left */}
