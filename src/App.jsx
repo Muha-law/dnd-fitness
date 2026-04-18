@@ -151,7 +151,80 @@ export default function App() {
           </p>
         </div>
       </section>
+      {/* GROUP WORKOUTS — trending offer */}
+<section id="group" className="px-4 md:px-8 py-20 md:py-32 bg-on-surface text-on-primary relative overflow-hidden">
+  {/* Subtle accent dot */}
+  <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-accent" />
 
+  <div className="max-w-[1100px] mx-auto relative z-10">
+    {/* "Trending now" badge */}
+    <div className="inline-flex items-center gap-3 mb-10 md:mb-14 border border-accent px-4 py-2">
+      <div className="w-1.5 h-1.5 bg-accent animate-pulse" />
+      <span className="font-mono text-label-md uppercase text-accent tracking-widest">
+        Now Trending — Limited Spots
+      </span>
+    </div>
+
+    {/* Headline */}
+    <h2 className="text-3xl md:text-5xl font-light leading-snug mb-8">
+      Stronger in numbers.
+      <br />
+      <span className="font-semibold">The DND Group Workout Sessions.</span>
+    </h2>
+
+    {/* Body */}
+    <div className="grid md:grid-cols-12 gap-8 md:gap-16 mt-12 md:mt-16">
+      <div className="md:col-span-7 space-y-6 text-on-primary/80 text-body-md md:text-base leading-relaxed">
+        <p>
+          Three times a week, our members come together to train, sweat, and
+          level up side by side. No egos. No shortcuts. Just one hour of focused,
+          coach-led work with people who are all in.
+        </p>
+        <p>
+          Whether you're a regular 1-on-1 member or looking for a more affordable
+          way to train with structure, our group sessions deliver a proper workout
+          and a real sense of momentum.
+        </p>
+        <p className="text-on-primary font-semibold pt-4">
+          Come on time. Leave stronger.
+        </p>
+      </div>
+
+      {/* Schedule card */}
+      <div className="md:col-span-5">
+        <div className="border border-on-primary/20 p-8 md:p-10">
+          <span className="font-mono text-label-md uppercase text-on-primary/50 mb-6 block">
+            Weekly Schedule
+          </span>
+          <ul className="space-y-5">
+            {[
+              { day: "Tuesday", time: "1 hour" },
+              { day: "Thursday", time: "1 hour" },
+              { day: "Saturday", time: "1 hour" },
+            ].map((slot, i) => (
+              <li key={i} className="flex items-baseline justify-between border-b border-on-primary/10 pb-4 last:border-b-0 last:pb-0">
+                <div className="flex items-baseline gap-4">
+                  <span className="font-mono text-label-md text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-base md:text-lg font-medium">{slot.day}</span>
+                </div>
+                <span className="font-mono text-label-md text-on-primary/50">{slot.time}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="#contact"
+            className="mt-10 block text-center w-full py-4 bg-accent text-on-primary text-body-md font-medium hover:bg-on-primary hover:text-on-surface transition-colors"
+          >
+            Reserve your spot
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       {/* BENEFITS */}
       <section id="benefits" className="px-4 md:px-8 py-20 md:py-32 bg-surface-low">
         <div className="max-w-[900px] mx-auto">
