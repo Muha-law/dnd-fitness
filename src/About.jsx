@@ -84,59 +84,48 @@ export default function About() {
         </div>
       </section>
 
-      {/* APPROACH — dark callout */}
-      <section className="px-4 md:px-8 pb-20 md:pb-32">
-        <div className="max-w-[900px] mx-auto bg-on-surface text-on-primary p-8 md:p-16 relative">
-          <div className="absolute top-6 right-6 w-1.5 h-1.5 bg-accent" />
-          <span className="font-mono text-label-md uppercase text-on-primary/50 mb-6 block">
-            02 — Our Approach
-          </span>
-          <p className="text-2xl md:text-3xl font-light leading-snug mb-8">
-            Not quick fixes. Not extreme methods.
-            <br />
-            <span className="font-semibold">A complete system.</span>
-          </p>
-          <div className="space-y-6 text-on-primary/80 text-body-md md:text-base leading-relaxed">
-            <p>
-              Our approach is not based on quick fixes or extreme methods.
-              Instead, we focus on structure, consistency, and a system that
-              works with your lifestyle — not against it.
-            </p>
-            <p>
-              Through personalised training, tailored nutrition, and ongoing
-              accountability, we provide a complete coaching experience designed
-              to deliver real, sustainable results.
+      {/* OUR APPROACH — bg image on all screen sizes */}
+      <section 
+        className="relative px-4 md:px-8 py-20 md:py-32 bg-on-surface text-on-primary overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: "url('/approach.jpg')" }}
+      >
+        {/* Dark overlay - stronger on mobile, gradient on desktop */}
+        <div className="absolute inset-0 bg-on-surface/75 md:bg-gradient-to-r md:from-on-surface md:via-on-surface/70 md:to-on-surface/20" />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-[1400px] mx-auto">
+          <div className="md:max-w-[55%] lg:max-w-[50%]">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1.5 h-1.5 bg-accent" />
+              <span className="font-mono text-label-md uppercase text-on-primary/70">
+                Our Approach
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-10 leading-tight">
+              With our approach,
+              <br />
+              <span className="font-semibold">you will:</span>
+            </h2>
+            <ul className="space-y-5 md:space-y-6 mb-10 md:mb-12">
+              {[
+                "Achieve your physique goals efficiently and sustainably",
+                "Understand how your body works and how to train it properly",
+                "Track your progress and optimise recovery (sleep, stress, performance)",
+                "Build long-term health, energy, and longevity",
+              ].map((item, i) => (
+                <li key={i} className="flex gap-4 text-body-md md:text-lg text-on-primary/90">
+                  <span className="text-accent font-mono mt-1 flex-shrink-0">0{i + 1}</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-body-md md:text-lg text-on-primary/85 leading-relaxed pt-6 md:pt-8 border-t border-on-primary/15">
+              This isn't just training — it's a complete system designed to elevate
+              how you <span className="font-semibold text-on-primary">look, feel, and perform.</span>
             </p>
           </div>
         </div>
       </section>
-
-      {/* CLOSING */}
-      <section className="px-4 md:px-8 py-20 md:py-32 bg-surface-low">
-        <div className="max-w-[900px] mx-auto">
-          <div className="flex items-center gap-3 mb-10 md:mb-14">
-            <div className="w-1.5 h-1.5 bg-accent" />
-            <span className="font-mono text-label-md uppercase text-on-surface/60">
-              03 — More Than Training
-            </span>
-          </div>
-
-          <p className="text-2xl md:text-3xl font-light text-on-surface leading-snug mb-8">
-            At DND Fitness, it's not just about how you look.
-          </p>
-          <p className="text-body-md md:text-lg text-on-surface/80 leading-relaxed mb-12">
-            It's about how you feel, how you perform, and how you show up in
-            every area of your life.
-          </p>
-
-          <p className="text-2xl md:text-3xl font-light text-on-surface leading-snug pt-8 border-t border-on-surface/10">
-            This is more than personal training.
-            <br />
-            <span className="font-semibold">A system for long-term health, strength, and confidence.</span>
-          </p>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="px-4 md:px-8 py-20 md:py-32">
         <div className="max-w-[1400px] mx-auto bg-on-surface p-8 md:p-20 relative overflow-hidden">
