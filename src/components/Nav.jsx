@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const whatsappUrl =
   "https://wa.me/447534498360?text=" +
@@ -11,6 +11,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === "/";
 
   useEffect(() => {
@@ -19,7 +20,25 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // On non-home pages, always use dark text since there's no dark hero
+  // Smart hash link handler — works from any page
+  const handleHashClick = (e, hash) => {
+    e.preventDefault();
+    setMenuOpen(false);
+
+    if (isHome) {
+      // Already on homepage — just scroll
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Different page — navigate home, then scroll after render
+      navigate("/");
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
+
   const navTextColor = scrolled || !isHome ? "text-on-surface" : "text-on-primary";
   const navBg = scrolled || !isHome ? "bg-surface/90" : "bg-on-surface/40";
   const logoFilter = scrolled || !isHome ? "" : "brightness-0 invert";
@@ -30,7 +49,13 @@ export default function Nav() {
         <div className="hidden md:flex items-center gap-10 flex-1">
           <Link to="/" className={"text-body-md hover:text-accent transition-colors " + navTextColor}>Home</Link>
           <Link to="/about" className={"text-body-md hover:text-accent transition-colors " + navTextColor}>About</Link>
-          <Link to="/#benefits" className={"text-body-md hover:text-accent transition-colors " + navTextColor}>Benefits</Link>
+          <a
+            href="#benefits"
+            onClick={(e) => handleHashClick(e, "#benefits")}
+            className={"text-body-md hover:text-accent transition-colors cursor-pointer " + navTextColor}
+          >
+            Benefits
+          </a>
         </div>
 
         <button
@@ -55,7 +80,13 @@ export default function Nav() {
         </div>
 
         <div className="hidden md:flex items-center gap-8 flex-1 justify-end">
-          <Link to="/#contact" className={"text-body-md hover:text-accent transition-colors " + navTextColor}>Contact</Link>
+          <a
+            href="#contact"
+            onClick={(e) => handleHashClick(e, "#contact")}
+            className={"text-body-md hover:text-accent transition-colors cursor-pointer " + navTextColor}
+          >
+            Contact
+          </a>
           <a
             href={whatsappUrl}
             target="_blank"
@@ -73,8 +104,20 @@ export default function Nav() {
         <div className="md:hidden bg-surface border-t border-on-surface/10 px-4 py-6 space-y-4">
           <Link to="/" onClick={() => setMenuOpen(false)} className="block text-body-md text-on-surface">Home</Link>
           <Link to="/about" onClick={() => setMenuOpen(false)} className="block text-body-md text-on-surface">About</Link>
-          <Link to="/#benefits" onClick={() => setMenuOpen(false)} className="block text-body-md text-on-surface">Benefits</Link>
-          <Link to="/#contact" onClick={() => setMenuOpen(false)} className="block text-body-md text-on-surface">Contact</Link>
+          <a
+            href="#benefits"
+            onClick={(e) => handleHashClick(e, "#benefits")}
+            className="block text-body-md text-on-surface cursor-pointer"
+          >
+            Benefits
+          </a>
+          <a
+            href="#contact"
+            onClick={(e) => handleHashClick(e, "#contact")}
+            className="block text-body-md text-on-surface cursor-pointer"
+          >
+            Contact
+          </a>
           <a
             href={whatsappUrl}
             target="_blank"

@@ -98,47 +98,93 @@ export default function App() {
       </section>
 
       {/* OUR APPROACH */}
-<section 
-  className="relative px-4 md:px-8 py-20 md:py-32 bg-on-surface text-on-primary overflow-hidden bg-cover bg-center"
-  style={{ backgroundImage: "url('/approach.jpg')" }}
->
-  <div className="absolute inset-0 bg-on-surface/75 md:bg-gradient-to-r md:from-on-surface md:via-on-surface/70 md:to-on-surface/20" />
+<section className="bg-on-surface text-on-primary">
 
-  <div className="relative z-10 max-w-[1400px] mx-auto">
-    <div className="md:max-w-[55%] lg:max-w-[50%]">
+  {/* ============ MOBILE ONLY ============ */}
+  <div 
+    className="md:hidden relative px-4 py-20 bg-cover bg-center"
+    style={{ backgroundImage: "url('/approach.jpg')" }}
+  >
+    <div className="absolute inset-0 bg-on-surface/75" />
+    <div className="relative z-10">
       <div className="flex items-center gap-3 mb-8">
         <div className="w-1.5 h-1.5 bg-accent" />
-        <span className="font-mono text-label-md uppercase text-on-primary/70">
-          Our Approach
-        </span>
+        <span className="font-mono text-label-md uppercase text-on-primary/70">Our Approach</span>
       </div>
-
-      <p className="text-3xl md:text-4xl lg:text-5xl font-light mb-10 leading-tight">
+      <p className="text-3xl font-light mb-10 leading-tight">
         With our approach,
         <br />
         <span className="font-semibold">you will:</span>
       </p>
-
-      <ul className="space-y-5 md:space-y-6 mb-10 md:mb-12">
+      <ul className="space-y-5 mb-10">
         {[
           "Achieve your physique goals efficiently and sustainably",
           "Understand how your body works and how to train it properly",
           "Track your progress and optimise recovery (sleep, stress, performance)",
           "Build long-term health, energy, and longevity",
         ].map((item, i) => (
-          <li key={i} className="flex gap-4 text-body-md md:text-lg text-on-primary/90">
+          <li key={i} className="flex gap-4 text-body-md text-on-primary/90">
             <span className="text-accent font-mono mt-1 flex-shrink-0">0{i + 1}</span>
             <span>{item}</span>
           </li>
         ))}
       </ul>
-
-      <p className="text-body-md md:text-lg text-on-primary/85 leading-relaxed pt-6 md:pt-8 border-t border-on-primary/15">
+      <p className="text-body-md text-on-primary/85 leading-relaxed pt-6 border-t border-on-primary/15">
         This isn't just training — it's a complete system designed to elevate
         how you <span className="font-semibold text-on-primary">look, feel, and perform.</span>
       </p>
     </div>
   </div>
+
+  {/* ============ DESKTOP ONLY ============ */}
+  <div className="hidden md:block px-8 py-32">
+    <div className="max-w-[1400px] mx-auto grid grid-cols-12 gap-12 items-center">
+      
+      {/* Text left */}
+      <div className="col-span-7">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="w-1.5 h-1.5 bg-accent" />
+          <span className="font-mono text-label-md uppercase text-on-primary/70">Our Approach</span>
+        </div>
+        <p className="text-4xl lg:text-5xl font-light mb-10 leading-tight">
+          With our approach,
+          <br />
+          <span className="font-semibold">you will:</span>
+        </p>
+        <ul className="space-y-6 mb-12">
+          {[
+            "Achieve your physique goals efficiently and sustainably",
+            "Understand how your body works and how to train it properly",
+            "Track your progress and optimise recovery (sleep, stress, performance)",
+            "Build long-term health, energy, and longevity",
+          ].map((item, i) => (
+            <li key={i} className="flex gap-4 text-lg text-on-primary/90">
+              <span className="text-accent font-mono mt-1 flex-shrink-0">0{i + 1}</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="text-lg text-on-primary/85 leading-relaxed pt-8 border-t border-on-primary/15">
+          This isn't just training — it's a complete system designed to elevate
+          how you <span className="font-semibold text-on-primary">look, feel, and perform.</span>
+        </p>
+      </div>
+
+      {/* Image right with gradient blend */}
+      <div className="col-span-5">
+        <div className="relative">
+          <img
+            src="/approach.jpg"
+            alt="DND Approach"
+            className="w-full h-auto block"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-on-surface via-on-surface/30 to-transparent" />
+          <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-accent" />
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
 
       {/* WHAT YOU GET AS A 1-1 CLIENT */}
