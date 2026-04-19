@@ -16,9 +16,9 @@ export default function About() {
 
       {/* HERO with background image */}
       {/* HERO — black left, photo right, gradient blend */}
-<section className="relative min-h-screen bg-on-surface overflow-hidden pt-32 pb-20">
+<section className="relative min-h-[80vh] md:min-h-screen bg-on-surface overflow-hidden pt-32 pb-20">
   {/* Photo on the right */}
-  <div className="absolute top-0 right-0 bottom-0 w-full md:w-3/5 lg:w-1/2">
+  <div className="absolute top-0 right-0 bottom-0 w-full h-[50vh] md:h-full md:w-3/5 lg:w-1/2">
     <img
       src="/about.jpg"
       alt="DND Fitness Founder"
