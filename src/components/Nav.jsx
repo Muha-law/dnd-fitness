@@ -26,11 +26,9 @@ export default function Nav() {
     setMenuOpen(false);
 
     if (isHome) {
-      // Already on homepage — just scroll
       const el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     } else {
-      // Different page — navigate home, then scroll after render
       navigate("/");
       setTimeout(() => {
         const el = document.querySelector(hash);
@@ -46,9 +44,23 @@ export default function Nav() {
   return (
     <nav className={"fixed top-0 left-0 right-0 z-50 backdrop-blur-[20px] transition-colors duration-300 " + navBg}>
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-4 md:py-6 flex items-center">
-        <div className="hidden md:flex items-center gap-10 flex-1">
+        <div className="hidden md:flex items-center gap-8 flex-1">
           <Link to="/" className={"text-body-md hover:text-accent transition-colors " + navTextColor}>Home</Link>
           <Link to="/about" className={"text-body-md hover:text-accent transition-colors " + navTextColor}>About</Link>
+          <a
+            href="#dip"
+            onClick={(e) => handleHashClick(e, "#dip")}
+            className={"text-body-md hover:text-accent transition-colors cursor-pointer " + navTextColor}
+          >
+            DIP
+          </a>
+          <a
+            href="#runclub"
+            onClick={(e) => handleHashClick(e, "#runclub")}
+            className={"text-body-md hover:text-accent transition-colors cursor-pointer " + navTextColor}
+          >
+            Run Club
+          </a>
           <a
             href="#benefits"
             onClick={(e) => handleHashClick(e, "#benefits")}
@@ -104,6 +116,20 @@ export default function Nav() {
         <div className="md:hidden bg-surface border-t border-on-surface/10 px-4 py-6 space-y-4">
           <Link to="/" onClick={() => setMenuOpen(false)} className="block text-body-md text-on-surface">Home</Link>
           <Link to="/about" onClick={() => setMenuOpen(false)} className="block text-body-md text-on-surface">About</Link>
+          <a
+            href="#dip"
+            onClick={(e) => handleHashClick(e, "#dip")}
+            className="block text-body-md text-on-surface cursor-pointer"
+          >
+            DIP
+          </a>
+          <a
+            href="#runclub"
+            onClick={(e) => handleHashClick(e, "#runclub")}
+            className="block text-body-md text-on-surface cursor-pointer"
+          >
+            Run Club
+          </a>
           <a
             href="#benefits"
             onClick={(e) => handleHashClick(e, "#benefits")}

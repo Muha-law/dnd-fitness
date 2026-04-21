@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-
+import Popup from "./components/Popup";
+import MiniPopup from "./components/MiniPopup";
 const whatsappUrl =
   "https://wa.me/447534498360?text=" +
   encodeURIComponent(
@@ -15,53 +16,205 @@ const mailtoUrl =
   encodeURIComponent("Inquiry from DND Fitness website") +
   "&body=" +
   encodeURIComponent("Hi DND Team,\n\nI'd like to learn more about your coaching programs.\n\nThanks,");
+function HeroSlideshow() {
+  const images = ["/hero1.jpeg", "/hero2.jpeg", "/hero3.jpeg", "/hero4.jpeg", "/hero5.jpeg"];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-export default function App() {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
-      <Nav />
+    <section id="home" className="relative bg-on-surface text-on-primary">
 
-      {/* HERO */}
-      <section id="home" className="relative min-h-screen flex items-center px-4 md:px-8 pt-32 pb-20 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/hero.png')" }}
-        />
-        <div className="absolute inset-0 bg-on-surface/20" />
+      {/* ============ MOBILE ONLY ============ */}
+      <div className="md:hidden relative min-h-[70vh] flex items-center px-4 pt-32 pb-20 overflow-hidden">
+        {images.map((src, i) => (
+          <div
+            key={src}
+            className="absolute inset-0 bg-cover bg-center transition-opacity duration-[1500ms]"
+            style={{
+              backgroundImage: `url('${src}')`,
+              opacity: currentIndex === i ? 1 : 0,
+            }}
+          />
+        ))}
+        <div className="absolute inset-0 bg-on-surface/40" />
 
-        <div className="max-w-[1400px] mx-auto w-full relative z-10">
-          <div className="flex items-center gap-3 mb-8 md:mb-12">
-            <div className="w-1.5 h-1.5 bg-accent" />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              className={"h-1.5 transition-all duration-300 " + (currentIndex === i ? "w-8 bg-on-primary" : "w-1.5 bg-on-primary/40")}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        <div className="relative z-10 w-full">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-1.5 h-1.5 bg-accent animate-pulse" />
             <span className="font-mono text-label-md uppercase text-on-primary">
               DND Fitness — Health is Wealth
             </span>
           </div>
+          <h1 className="text-4xl font-light text-on-primary mb-6 leading-tight drop-shadow-lg">
+            Your body is your
+            <br />
+            <span className="font-semibold">most valuable</span> asset.
+          </h1>
+          <p className="text-body-md text-on-primary mb-8 max-w-md drop-shadow-lg">
+            It should be treated like one. DND helps you take back control of
+            your body and performance — no shortcuts, just a complete system.
+          </p>
+          <div className="flex flex-col gap-4">
+            <a
+              href="#contact"
+              className="inline-block text-center px-6 py-4 bg-on-primary text-on-surface text-body-md font-medium"
+            >
+              Start my journey
+            </a>
+            <a href="#about" className="text-body-md text-on-primary font-medium">
+              Learn more →
+            </a>
+          </div>
+        </div>
+      </div>
 
-          <div className="w-full md:max-w-[65%]">
-            <h1 className="text-4xl md:text-display-lg font-light text-on-primary mb-6 md:mb-8 leading-tight drop-shadow-lg">
+      {/* ============ DESKTOP ONLY ============ */}
+      <div className="hidden md:block min-h-screen px-8 pt-32 pb-20">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-12 gap-12 items-center min-h-[calc(100vh-14rem)]">
+
+            {/* Text left */}
+            <div className="col-span-6">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1.5 h-1.5 bg-accent animate-pulse" />
+              <span className="font-mono text-label-md uppercase text-on-primary/70">
+                DND Fitness — Health is Wealth
+              </span>
+            </div>
+            <h1 className="text-display-lg font-light text-on-primary mb-8 leading-tight">
               Your body is your
               <br />
               <span className="font-semibold">most valuable</span> asset.
             </h1>
-            <p className="text-body-md text-on-primary mb-8 md:mb-12 max-w-md drop-shadow-lg">
+            <p className="text-base text-on-primary/80 mb-12 max-w-md">
               It should be treated like one. DND helps you take back control of
               your body and performance — no shortcuts, just a complete system.
             </p>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+            <div className="flex items-center gap-8">
               <a
                 href="#contact"
                 className="inline-block text-center px-6 py-4 bg-on-primary text-on-surface text-body-md font-medium hover:bg-accent hover:text-on-primary transition-colors"
               >
                 Start my journey
               </a>
-              <a href="#about" className="text-body-md text-on-primary font-medium">
+              <a href="#about" className="text-base text-on-primary font-medium">
                 Learn more →
               </a>
             </div>
           </div>
-        </div>
-      </section>
 
+          {/* Sliding images right in gradient box */}
+          <div className="col-span-6">
+            <div className="relative aspect-[4/5] overflow-hidden -ml-8">
+              {images.map((src, i) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms]"
+                  style={{ opacity: currentIndex === i ? 1 : 0 }}
+                />
+              ))}
+              <div className="absolute inset-0 bg-gradient-to-r from-on-surface via-on-surface/40 to-transparent" />
+              <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-accent animate-pulse" />
+
+              {/* Slide indicators */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                {images.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentIndex(i)}
+                    className={"h-1.5 transition-all duration-300 " + (currentIndex === i ? "w-6 bg-on-primary" : "w-1.5 bg-on-primary/40")}
+                    aria-label={`Slide ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+  );
+}
+export default function App() {
+  const [popupStep, setPopupStep] = useState(0); // 0 = none, 1 = DIP, 2 = Run Club
+
+useEffect(() => {
+  const timer = setTimeout(() => setPopupStep(1), 1200); // show DIP 1.2s after load
+  return () => clearTimeout(timer);
+}, []);
+  return (
+    <div className="min-h-screen bg-background overflow-x-hidden">
+      <Nav />
+      {popupStep === 1 && (
+        <Popup
+          badge="Now Trending"
+          title="The DND Insanity Program."
+          subtitle="Limited Spots · 3 Sessions/Week"
+          body="Join the group workouts taking over DND. One hour, three times a week, training alongside people who are all in. Reserve your spot before we fill up."
+          ctaLabel="See the program →"
+          ctaHref="#dip"
+          onClose={() => setPopupStep(2)}
+        />
+      )}
+
+      {popupStep === 2 && (
+        <MiniPopup
+          badge="Also New"
+          title="DND Run Club"
+          body="Once a month. Games, runs, and free drinks with the community."
+          ctaLabel="Learn more →"
+          ctaHref="#runclub"
+          onClose={() => setPopupStep(0)}
+        />
+      )}
+
+      {/* HERO with slideshow */}
+      <HeroSlideshow />
+      {/* STAT TICKER — catchy, always in motion */}
+<section className="py-8 md:py-12 bg-on-surface text-on-primary border-y border-on-primary/10 overflow-hidden">
+  <div className="flex whitespace-nowrap animate-marquee gap-16">
+    {[...Array(2)].map((_, loop) => (
+      <div key={loop} className="flex items-center gap-16 shrink-0">
+        {[
+          "3 SESSIONS PER WEEK",
+          "1-ON-1 COACHING",
+          "NUTRITION TAILORED TO YOU",
+          "HABIT COACHING",
+          "ACCOUNTABILITY BUILT IN",
+          "STRENGTH · LONGEVITY · CONFIDENCE",
+          "24/7 SUPPORT",
+          "ZERO SHORTCUTS",
+        ].map((text, i) => (
+          <span key={i} className="flex items-center gap-16 shrink-0">
+            <span className="font-mono text-label-md md:text-lg uppercase tracking-widest">
+              {text}
+            </span>
+            <span className="w-1.5 h-1.5 bg-accent" />
+          </span>
+        ))}
+      </div>
+    ))}
+  </div>
+</section>
       {/* ABOUT */}
       <section id="about" className="px-4 md:px-8 py-20 md:py-32">
         <div className="max-w-[900px] mx-auto">
@@ -432,7 +585,77 @@ export default function App() {
           </div>
         </div>
       </section>
+      {/* RUN CLUB */}
+      <section id="runclub" className="relative px-4 md:px-8 py-20 md:py-32 bg-surface-low overflow-hidden">
+        <div className="max-w-[1100px] mx-auto">
 
+          <div className="inline-flex items-center gap-3 mb-10 md:mb-14 bg-accent px-4 py-2">
+            <div className="w-1.5 h-1.5 bg-on-primary animate-pulse" />
+            <span className="font-mono text-label-md uppercase text-on-primary tracking-widest">
+              Community — Monthly
+            </span>
+          </div>
+
+          <span className="font-mono text-label-md uppercase text-on-surface/50 mb-4 block">
+            05 — DND Run Club
+          </span>
+
+          <h2 className="text-3xl md:text-5xl font-light leading-snug text-on-surface mb-8">
+            One park. One run.
+            <br />
+            <span className="font-semibold">One community.</span>
+          </h2>
+
+          <div className="grid md:grid-cols-12 gap-8 md:gap-16 mt-12 md:mt-16">
+            <div className="md:col-span-7 space-y-6 text-on-surface/80 text-body-md md:text-base leading-relaxed">
+              <p>
+                Once a month, the DND community comes together for a relaxed run at
+                the park — followed by games, good energy, and free drinks from our
+                brand partners.
+              </p>
+              <p>
+                It's more than a workout. It's where training meets community,
+                where the people you sweat with become the people you build with.
+              </p>
+              <p className="text-on-surface font-semibold pt-4">
+                Open to all fitness levels. Bring a friend. Leave with new ones.
+              </p>
+            </div>
+
+            <div className="md:col-span-5">
+              <div className="border border-on-surface p-8 md:p-10 bg-surface">
+                <span className="font-mono text-label-md uppercase text-on-surface/50 mb-6 block">
+                  What to expect
+                </span>
+                <ul className="space-y-5">
+                  {[
+                    { num: "01", label: "Group run at the park" },
+                    { num: "02", label: "Games & community activities" },
+                    { num: "03", label: "Free drinks from brand partners" },
+                    { num: "04", label: "Photos, vibes, and good energy" },
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-baseline gap-4 border-b border-on-surface/10 pb-4 last:border-b-0 last:pb-0">
+                      <span className="font-mono text-label-md text-accent">{item.num}</span>
+                      <span className="text-base md:text-lg font-medium text-on-surface">{item.label}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8 pt-6 border-t border-on-surface/10">
+                  <span className="font-mono text-label-md uppercase text-on-surface/50 block mb-2">Next run</span>
+                  <p className="text-lg font-semibold text-on-surface">Date TBC — watch this space</p>
+                </div>
+                <a
+                  href="#contact"
+                  className="mt-10 block text-center w-full py-4 bg-on-surface text-on-primary text-body-md font-medium hover:bg-accent hover:text-on-primary transition-colors"
+                >
+                  Join the next run
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* CTA */}
       <section id="contact" className="px-4 md:px-8 py-20 md:py-32">
         <div className="max-w-[1400px] mx-auto bg-on-surface p-8 md:p-20 relative overflow-hidden">
