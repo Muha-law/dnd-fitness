@@ -239,17 +239,17 @@ export default function App() {
         </div>
       </section>
 
-      {/* OUR APPROACH — WHITE */}
-      <section className="bg-surface text-on-surface">
+      {/* OUR APPROACH — BLACK with image gradient */}
+      <section className="bg-on-surface text-on-primary">
         <div
-          className="md:hidden relative px-4 py-20 bg-cover bg-center"
+          className="md:hidden relative px-4 py-20 bg-cover bg-center text-on-primary"
           style={{ backgroundImage: "url('/approach.jpg')" }}
         >
-          <div className="absolute inset-0 bg-surface/85" />
+          <div className="absolute inset-0 bg-on-surface/75" />
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-1.5 h-1.5 bg-accent" />
-              <span className="font-mono text-label-md uppercase text-on-surface/70">Our Approach</span>
+              <span className="font-mono text-label-md uppercase text-on-primary/70">Our Approach</span>
             </div>
             <p className="text-3xl font-light mb-10 leading-tight">
               With our approach,
@@ -263,25 +263,25 @@ export default function App() {
                 "Track your progress and optimise recovery (sleep, stress, performance)",
                 "Build long-term health, energy, and longevity",
               ].map((item, i) => (
-                <li key={i} className="flex gap-4 text-body-md text-on-surface/90">
+                <li key={i} className="flex gap-4 text-body-md text-on-primary/90">
                   <span className="text-accent font-mono mt-1 flex-shrink-0">0{i + 1}</span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
-            <p className="text-body-md text-on-surface/85 leading-relaxed pt-6 border-t border-on-surface/15">
+            <p className="text-body-md text-on-primary/85 leading-relaxed pt-6 border-t border-on-primary/15">
               This isn't just training — it's a complete system designed to elevate
-              how you <span className="font-semibold">look, feel, and perform.</span>
+              how you <span className="font-semibold text-on-primary">look, feel, and perform.</span>
             </p>
           </div>
         </div>
 
-        <div className="hidden md:block px-8 py-32">
+        <div className="hidden md:block px-8 py-32 bg-on-surface text-on-primary">
           <div className="max-w-[1400px] mx-auto grid grid-cols-12 gap-12 items-center">
             <div className="col-span-7">
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-1.5 h-1.5 bg-accent" />
-                <span className="font-mono text-label-md uppercase text-on-surface/70">Our Approach</span>
+                <span className="font-mono text-label-md uppercase text-on-primary/70">Our Approach</span>
               </div>
               <p className="text-4xl lg:text-5xl font-light mb-10 leading-tight">
                 With our approach,
@@ -295,15 +295,15 @@ export default function App() {
                   "Track your progress and optimise recovery (sleep, stress, performance)",
                   "Build long-term health, energy, and longevity",
                 ].map((item, i) => (
-                  <li key={i} className="flex gap-4 text-lg text-on-surface/90">
+                  <li key={i} className="flex gap-4 text-lg text-on-primary/90">
                     <span className="text-accent font-mono mt-1 flex-shrink-0">0{i + 1}</span>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <p className="text-lg text-on-surface/85 leading-relaxed pt-8 border-t border-on-surface/15">
+              <p className="text-lg text-on-primary/85 leading-relaxed pt-8 border-t border-on-primary/15">
                 This isn't just training — it's a complete system designed to elevate
-                how you <span className="font-semibold">look, feel, and perform.</span>
+                how you <span className="font-semibold text-on-primary">look, feel, and perform.</span>
               </p>
             </div>
             <div className="col-span-5">
@@ -313,7 +313,7 @@ export default function App() {
                   alt="DND Approach"
                   className="w-full h-auto block"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-on-surface via-on-surface/30 to-transparent" />
                 <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-accent" />
               </div>
             </div>

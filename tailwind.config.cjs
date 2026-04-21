@@ -17,7 +17,7 @@ module.exports = {
         "outline-variant": "#000000",
       },
       animation: {
-        marquee: "marquee 30s linear infinite",
+        marquee: "marquee 15s linear infinite",
         "slide-up": "slideUp 0.5s ease-out",
       },
       keyframes: {

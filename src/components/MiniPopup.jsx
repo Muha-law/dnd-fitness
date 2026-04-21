@@ -16,9 +16,9 @@ export default function MiniPopup({ badge, title, body, ctaLabel, ctaHref, onClo
         {/* Badge */}
         <div className="inline-flex items-center gap-2 mb-3">
           <div className="w-1.5 h-1.5 animate-pulse" style={{ backgroundColor: "#004ced" }} />
-            <span className="font-mono text-label-sm uppercase tracking-widest" style={{ color: "#004ced" }}>
+            <span className="font-mono text-label-sm uppercase tracking-widest text-on-primary">
             {badge}
-          </span>
+        </span>
         </div>
 
         {/* Title */}
@@ -29,12 +29,11 @@ export default function MiniPopup({ badge, title, body, ctaLabel, ctaHref, onClo
 
         {/* CTA */}
         <a
-            href={ctaHref}
-            onClick={onClose}
-            style={{ color: "#004ced" }}
-            className="inline-block font-mono text-label-md uppercase tracking-widest hover:text-on-primary transition-colors"
-            >
-          {ctaLabel}
+        href={ctaHref}
+        onClick={onClose}
+        className="inline-block font-mono text-label-md uppercase tracking-widest text-on-primary hover:text-accent transition-colors"
+        >
+        {ctaLabel}
         </a>
       </div>
     </div>
