@@ -1,7 +1,7 @@
 export default function MiniPopup({ badge, title, body, ctaLabel, ctaHref, onClose }) {
   return (
     <div className="fixed bottom-6 right-6 z-[90] max-w-sm animate-slide-up">
-      <div className="relative bg-on-surface text-on-primary border border-accent p-6 shadow-ambient">
+      <div className="relative bg-on-surface text-on-primary border p-6 shadow-ambient" style={{ borderColor: "#004ced" }}>
         {/* Close button */}
         <button
           onClick={onClose}
@@ -15,8 +15,8 @@ export default function MiniPopup({ badge, title, body, ctaLabel, ctaHref, onClo
 
         {/* Badge */}
         <div className="inline-flex items-center gap-2 mb-3">
-          <div className="w-1.5 h-1.5 bg-accent animate-pulse" />
-          <span className="font-mono text-label-sm uppercase text-accent tracking-widest">
+          <div className="w-1.5 h-1.5 animate-pulse" style={{ backgroundColor: "#004ced" }} />
+            <span className="font-mono text-label-sm uppercase tracking-widest" style={{ color: "#004ced" }}>
             {badge}
           </span>
         </div>
@@ -29,10 +29,11 @@ export default function MiniPopup({ badge, title, body, ctaLabel, ctaHref, onClo
 
         {/* CTA */}
         <a
-          href={ctaHref}
-          onClick={onClose}
-          className="inline-block font-mono text-label-md uppercase tracking-widest text-accent hover:text-on-primary transition-colors"
-        >
+            href={ctaHref}
+            onClick={onClose}
+            style={{ color: "#004ced" }}
+            className="inline-block font-mono text-label-md uppercase tracking-widest hover:text-on-primary transition-colors"
+            >
           {ctaLabel}
         </a>
       </div>

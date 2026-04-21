@@ -3,8 +3,9 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Popup from "./components/Popup";
 import MiniPopup from "./components/MiniPopup";
+
 const whatsappUrl =
-  "https://wa.me/447534498360?text=" +
+  "https://wa.me/447903824774?text=" +
   encodeURIComponent(
     "Hi, my name is ___. I'm interested in learning more about DND Fitness coaching."
   );
@@ -16,6 +17,7 @@ const mailtoUrl =
   encodeURIComponent("Inquiry from DND Fitness website") +
   "&body=" +
   encodeURIComponent("Hi DND Team,\n\nI'd like to learn more about your coaching programs.\n\nThanks,");
+
 function HeroSlideshow() {
   const images = ["/hero1.jpeg", "/hero2.jpeg", "/hero3.jpeg", "/hero4.jpeg", "/hero5.jpeg"];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,8 +31,6 @@ function HeroSlideshow() {
 
   return (
     <section id="home" className="relative bg-on-surface text-on-primary">
-
-      {/* ============ MOBILE ONLY ============ */}
       <div className="md:hidden relative min-h-[70vh] flex items-center px-4 pt-32 pb-20 overflow-hidden">
         {images.map((src, i) => (
           <div
@@ -43,7 +43,6 @@ function HeroSlideshow() {
           />
         ))}
         <div className="absolute inset-0 bg-on-surface/40" />
-
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
           {images.map((_, i) => (
             <button
@@ -54,7 +53,6 @@ function HeroSlideshow() {
             />
           ))}
         </div>
-
         <div className="relative z-10 w-full">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-1.5 h-1.5 bg-accent animate-pulse" />
@@ -85,12 +83,9 @@ function HeroSlideshow() {
         </div>
       </div>
 
-      {/* ============ DESKTOP ONLY ============ */}
       <div className="hidden md:block min-h-screen px-8 pt-32 pb-20">
         <div className="max-w-[1400px] mx-auto grid grid-cols-12 gap-12 items-center min-h-[calc(100vh-14rem)]">
-
-            {/* Text left */}
-            <div className="col-span-6">
+          <div className="col-span-6">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-1.5 h-1.5 bg-accent animate-pulse" />
               <span className="font-mono text-label-md uppercase text-on-primary/70">
@@ -118,8 +113,6 @@ function HeroSlideshow() {
               </a>
             </div>
           </div>
-
-          {/* Sliding images right in gradient box */}
           <div className="col-span-6">
             <div className="relative aspect-[4/5] overflow-hidden -ml-8">
               {images.map((src, i) => (
@@ -133,8 +126,6 @@ function HeroSlideshow() {
               ))}
               <div className="absolute inset-0 bg-gradient-to-r from-on-surface via-on-surface/40 to-transparent" />
               <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-accent animate-pulse" />
-
-              {/* Slide indicators */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
                 {images.map((_, i) => (
                   <button
@@ -147,23 +138,24 @@ function HeroSlideshow() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
-
     </section>
   );
 }
-export default function App() {
-  const [popupStep, setPopupStep] = useState(0); // 0 = none, 1 = DIP, 2 = Run Club
 
-useEffect(() => {
-  const timer = setTimeout(() => setPopupStep(1), 1200); // show DIP 1.2s after load
-  return () => clearTimeout(timer);
-}, []);
+export default function App() {
+  const [popupStep, setPopupStep] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setPopupStep(1), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Nav />
+
       {popupStep === 1 && (
         <Popup
           badge="Now Trending"
@@ -175,7 +167,6 @@ useEffect(() => {
           onClose={() => setPopupStep(2)}
         />
       )}
-
       {popupStep === 2 && (
         <MiniPopup
           badge="Also New"
@@ -187,62 +178,60 @@ useEffect(() => {
         />
       )}
 
-      {/* HERO with slideshow */}
+      {/* HERO — BLACK */}
       <HeroSlideshow />
-      {/* STAT TICKER — catchy, always in motion */}
-<section className="py-8 md:py-12 bg-on-surface text-on-primary border-y border-on-primary/10 overflow-hidden">
-  <div className="flex whitespace-nowrap animate-marquee gap-16">
-    {[...Array(2)].map((_, loop) => (
-      <div key={loop} className="flex items-center gap-16 shrink-0">
-        {[
-          "3 SESSIONS PER WEEK",
-          "1-ON-1 COACHING",
-          "NUTRITION TAILORED TO YOU",
-          "HABIT COACHING",
-          "ACCOUNTABILITY BUILT IN",
-          "STRENGTH · LONGEVITY · CONFIDENCE",
-          "24/7 SUPPORT",
-          "ZERO SHORTCUTS",
-        ].map((text, i) => (
-          <span key={i} className="flex items-center gap-16 shrink-0">
-            <span className="font-mono text-label-md md:text-lg uppercase tracking-widest">
-              {text}
-            </span>
-            <span className="w-1.5 h-1.5 bg-accent" />
-          </span>
-        ))}
-      </div>
-    ))}
-  </div>
-</section>
-      {/* ABOUT */}
-      <section id="about" className="px-4 md:px-8 py-20 md:py-32">
+
+      {/* STAT TICKER — WHITE */}
+      <section className="py-8 md:py-12 bg-surface text-on-surface border-y border-on-surface/10 overflow-hidden">
+        <div className="flex whitespace-nowrap animate-marquee gap-16">
+          {[...Array(2)].map((_, loop) => (
+            <div key={loop} className="flex items-center gap-16 shrink-0">
+              {[
+                "3 SESSIONS PER WEEK",
+                "1-ON-1 COACHING",
+                "NUTRITION TAILORED TO YOU",
+                "HABIT COACHING",
+                "ACCOUNTABILITY BUILT IN",
+                "STRENGTH · LONGEVITY · CONFIDENCE",
+                "24/7 SUPPORT",
+                "ZERO SHORTCUTS",
+              ].map((text, i) => (
+                <span key={i} className="flex items-center gap-16 shrink-0">
+                  <span className="font-mono text-label-md md:text-lg uppercase tracking-widest">
+                    {text}
+                  </span>
+                  <span className="w-1.5 h-1.5 bg-accent" />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ABOUT — BLACK */}
+      <section id="about" className="px-4 md:px-8 py-20 md:py-32 bg-on-surface text-on-primary">
         <div className="max-w-[900px] mx-auto">
           <div className="flex items-center gap-3 mb-10 md:mb-14">
             <div className="w-1.5 h-1.5 bg-accent" />
-            <span className="font-mono text-label-md uppercase text-on-surface/60">
+            <span className="font-mono text-label-md uppercase text-on-primary/60">
               01 — Why DND
             </span>
           </div>
-
-          <div className="space-y-8 text-on-surface">
+          <div className="space-y-8">
             <p className="text-2xl md:text-3xl font-light leading-snug">
               Your body is your most valuable asset —
               <span className="font-semibold"> it should be treated like one.</span>
             </p>
-
-            <p className="text-body-md md:text-base text-on-surface/80 leading-relaxed">
+            <p className="text-body-md md:text-base text-on-primary/80 leading-relaxed">
               You already understand that health is wealth. But a demanding schedule
               and the constant pursuit of balance often push your fitness to the
               side. Over time, this leads to neglect — and without your health,
               everything else becomes harder to sustain.
             </p>
-
-            <p className="text-body-md md:text-base text-on-surface font-semibold">
+            <p className="text-body-md md:text-base font-semibold">
               And that's where DND comes in.
             </p>
-
-            <p className="text-body-md md:text-base text-on-surface/80 leading-relaxed">
+            <p className="text-body-md md:text-base text-on-primary/80 leading-relaxed">
               With a tailored DND coaching system, we help you take back control of
               your body and performance.
             </p>
@@ -250,112 +239,236 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* OUR APPROACH */}
-<section className="bg-on-surface text-on-primary">
-
-  {/* ============ MOBILE ONLY ============ */}
-  <div 
-    className="md:hidden relative px-4 py-20 bg-cover bg-center"
-    style={{ backgroundImage: "url('/approach.jpg')" }}
-  >
-    <div className="absolute inset-0 bg-on-surface/75" />
-    <div className="relative z-10">
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-1.5 h-1.5 bg-accent" />
-        <span className="font-mono text-label-md uppercase text-on-primary/70">Our Approach</span>
-      </div>
-      <p className="text-3xl font-light mb-10 leading-tight">
-        With our approach,
-        <br />
-        <span className="font-semibold">you will:</span>
-      </p>
-      <ul className="space-y-5 mb-10">
-        {[
-          "Achieve your physique goals efficiently and sustainably",
-          "Understand how your body works and how to train it properly",
-          "Track your progress and optimise recovery (sleep, stress, performance)",
-          "Build long-term health, energy, and longevity",
-        ].map((item, i) => (
-          <li key={i} className="flex gap-4 text-body-md text-on-primary/90">
-            <span className="text-accent font-mono mt-1 flex-shrink-0">0{i + 1}</span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-      <p className="text-body-md text-on-primary/85 leading-relaxed pt-6 border-t border-on-primary/15">
-        This isn't just training — it's a complete system designed to elevate
-        how you <span className="font-semibold text-on-primary">look, feel, and perform.</span>
-      </p>
-    </div>
-  </div>
-
-  {/* ============ DESKTOP ONLY ============ */}
-  <div className="hidden md:block px-8 py-32">
-    <div className="max-w-[1400px] mx-auto grid grid-cols-12 gap-12 items-center">
-      
-      {/* Text left */}
-      <div className="col-span-7">
-        <div className="flex items-center gap-3 mb-8">
-          <div className="w-1.5 h-1.5 bg-accent" />
-          <span className="font-mono text-label-md uppercase text-on-primary/70">Our Approach</span>
+      {/* OUR APPROACH — WHITE */}
+      <section className="bg-surface text-on-surface">
+        <div
+          className="md:hidden relative px-4 py-20 bg-cover bg-center"
+          style={{ backgroundImage: "url('/approach.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-surface/85" />
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1.5 h-1.5 bg-accent" />
+              <span className="font-mono text-label-md uppercase text-on-surface/70">Our Approach</span>
+            </div>
+            <p className="text-3xl font-light mb-10 leading-tight">
+              With our approach,
+              <br />
+              <span className="font-semibold">you will:</span>
+            </p>
+            <ul className="space-y-5 mb-10">
+              {[
+                "Achieve your physique goals efficiently and sustainably",
+                "Understand how your body works and how to train it properly",
+                "Track your progress and optimise recovery (sleep, stress, performance)",
+                "Build long-term health, energy, and longevity",
+              ].map((item, i) => (
+                <li key={i} className="flex gap-4 text-body-md text-on-surface/90">
+                  <span className="text-accent font-mono mt-1 flex-shrink-0">0{i + 1}</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-body-md text-on-surface/85 leading-relaxed pt-6 border-t border-on-surface/15">
+              This isn't just training — it's a complete system designed to elevate
+              how you <span className="font-semibold">look, feel, and perform.</span>
+            </p>
+          </div>
         </div>
-        <p className="text-4xl lg:text-5xl font-light mb-10 leading-tight">
-          With our approach,
-          <br />
-          <span className="font-semibold">you will:</span>
-        </p>
-        <ul className="space-y-6 mb-12">
-          {[
-            "Achieve your physique goals efficiently and sustainably",
-            "Understand how your body works and how to train it properly",
-            "Track your progress and optimise recovery (sleep, stress, performance)",
-            "Build long-term health, energy, and longevity",
-          ].map((item, i) => (
-            <li key={i} className="flex gap-4 text-lg text-on-primary/90">
-              <span className="text-accent font-mono mt-1 flex-shrink-0">0{i + 1}</span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="text-lg text-on-primary/85 leading-relaxed pt-8 border-t border-on-primary/15">
-          This isn't just training — it's a complete system designed to elevate
-          how you <span className="font-semibold text-on-primary">look, feel, and perform.</span>
-        </p>
-      </div>
 
-      {/* Image right with gradient blend */}
-      <div className="col-span-5">
-        <div className="relative">
-          <img
-            src="/approach.jpg"
-            alt="DND Approach"
-            className="w-full h-auto block"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-on-surface via-on-surface/30 to-transparent" />
-          <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-accent" />
+        <div className="hidden md:block px-8 py-32">
+          <div className="max-w-[1400px] mx-auto grid grid-cols-12 gap-12 items-center">
+            <div className="col-span-7">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-1.5 h-1.5 bg-accent" />
+                <span className="font-mono text-label-md uppercase text-on-surface/70">Our Approach</span>
+              </div>
+              <p className="text-4xl lg:text-5xl font-light mb-10 leading-tight">
+                With our approach,
+                <br />
+                <span className="font-semibold">you will:</span>
+              </p>
+              <ul className="space-y-6 mb-12">
+                {[
+                  "Achieve your physique goals efficiently and sustainably",
+                  "Understand how your body works and how to train it properly",
+                  "Track your progress and optimise recovery (sleep, stress, performance)",
+                  "Build long-term health, energy, and longevity",
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-4 text-lg text-on-surface/90">
+                    <span className="text-accent font-mono mt-1 flex-shrink-0">0{i + 1}</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-lg text-on-surface/85 leading-relaxed pt-8 border-t border-on-surface/15">
+                This isn't just training — it's a complete system designed to elevate
+                how you <span className="font-semibold">look, feel, and perform.</span>
+              </p>
+            </div>
+            <div className="col-span-5">
+              <div className="relative">
+                <img
+                  src="/approach.jpg"
+                  alt="DND Approach"
+                  className="w-full h-auto block"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/30 to-transparent" />
+                <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-accent" />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </section>
 
-</section>
+      {/* DIP — BLACK */}
+      <section id="dip" className="px-4 md:px-8 py-20 md:py-32 bg-on-surface text-on-primary relative overflow-hidden">
+        <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-accent" />
+        <div className="max-w-[1100px] mx-auto relative z-10">
+          <div className="inline-flex items-center gap-3 mb-10 md:mb-14 bg-accent px-4 py-2">
+            <div className="w-1.5 h-1.5 bg-on-primary animate-pulse" />
+            <span className="font-mono text-label-md uppercase text-on-primary tracking-widest">
+              Now Trending — Limited Spots
+            </span>
+          </div>
+          <span className="font-mono text-label-md uppercase text-on-primary/50 mb-4 block">
+            02 — DND Insanity Program
+          </span>
+          <h2 className="text-3xl md:text-5xl font-light leading-snug mb-8">
+            Stronger in numbers.
+            <br />
+            <span className="font-semibold">The DND Insanity Program (DIP).</span>
+          </h2>
+          <div className="grid md:grid-cols-12 gap-8 md:gap-16 mt-12 md:mt-16">
+            <div className="md:col-span-7 space-y-6 text-on-primary/80 text-body-md md:text-base leading-relaxed">
+              <p>
+                Three times a week, our members come together to train, sweat, and
+                level up side by side. No egos. No shortcuts. Just one hour of focused,
+                coach-led work with people who are all in.
+              </p>
+              <p>
+                Whether you're a regular 1-1 client or looking for a more affordable
+                way to train with structure, DIP delivers a proper workout and a real
+                sense of momentum.
+              </p>
+              <p className="text-on-primary font-semibold pt-4">
+                Come on time. Leave stronger.
+              </p>
+            </div>
+            <div className="md:col-span-5">
+              <div className="border border-on-primary/20 p-8 md:p-10">
+                <span className="font-mono text-label-md uppercase text-on-primary/50 mb-6 block">
+                  Weekly Schedule
+                </span>
+                <ul className="space-y-5">
+                  {[
+                    { day: "Tuesday", time: "1 hour" },
+                    { day: "Thursday", time: "1 hour" },
+                    { day: "Saturday", time: "1 hour" },
+                  ].map((slot, i) => (
+                    <li key={i} className="flex items-baseline justify-between border-b border-on-primary/10 pb-4 last:border-b-0 last:pb-0">
+                      <div className="flex items-baseline gap-4">
+                        <span className="font-mono text-label-md text-accent">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="text-base md:text-lg font-medium">{slot.day}</span>
+                      </div>
+                      <span className="font-mono text-label-md text-on-primary/50">{slot.time}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="#contact"
+                  className="mt-10 block text-center w-full py-4 bg-accent text-on-primary text-body-md font-medium hover:bg-on-primary hover:text-on-surface transition-colors"
+                >
+                  Reserve your spot
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* WHAT YOU GET AS A 1-1 CLIENT */}
-      <section id="benefits" className="px-4 md:px-8 py-20 md:py-32 bg-surface-low">
+      {/* RUN CLUB — WHITE */}
+      <section id="runclub" className="relative px-4 md:px-8 py-20 md:py-32 bg-surface text-on-surface overflow-hidden">
+        <div className="max-w-[1100px] mx-auto">
+          <div className="inline-flex items-center gap-3 mb-10 md:mb-14 bg-accent px-4 py-2">
+            <div className="w-1.5 h-1.5 bg-on-primary animate-pulse" />
+            <span className="font-mono text-label-md uppercase text-on-primary tracking-widest">
+              Community — Monthly
+            </span>
+          </div>
+          <span className="font-mono text-label-md uppercase text-on-surface/50 mb-4 block">
+            03 — DND Run Club
+          </span>
+          <h2 className="text-3xl md:text-5xl font-light leading-snug mb-8">
+            One park. One run.
+            <br />
+            <span className="font-semibold">One community.</span>
+          </h2>
+          <div className="grid md:grid-cols-12 gap-8 md:gap-16 mt-12 md:mt-16">
+            <div className="md:col-span-7 space-y-6 text-on-surface/80 text-body-md md:text-base leading-relaxed">
+              <p>
+                Once a month, the DND community comes together for a relaxed run at
+                the park — followed by games, good energy, and free drinks from our
+                brand partners.
+              </p>
+              <p>
+                It's more than a workout. It's where training meets community,
+                where the people you sweat with become the people you build with.
+              </p>
+              <p className="font-semibold pt-4">
+                Open to all fitness levels. Bring a friend. Leave with new ones.
+              </p>
+            </div>
+            <div className="md:col-span-5">
+              <div className="border border-on-surface p-8 md:p-10 bg-surface">
+                <span className="font-mono text-label-md uppercase text-on-surface/50 mb-6 block">
+                  What to expect
+                </span>
+                <ul className="space-y-5">
+                  {[
+                    { num: "01", label: "Group run at the park" },
+                    { num: "02", label: "Games & community activities" },
+                    { num: "03", label: "Free drinks from brand partners" },
+                    { num: "04", label: "Photos, vibes, and good energy" },
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-baseline gap-4 border-b border-on-surface/10 pb-4 last:border-b-0 last:pb-0">
+                      <span className="font-mono text-label-md text-accent">{item.num}</span>
+                      <span className="text-base md:text-lg font-medium">{item.label}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 pt-6 border-t border-on-surface/10">
+                  <span className="font-mono text-label-md uppercase text-on-surface/50 block mb-2">Next run</span>
+                  <p className="text-lg font-semibold">Date TBC — watch this space</p>
+                </div>
+                <a
+                  href="#contact"
+                  className="mt-10 block text-center w-full py-4 bg-on-surface text-on-primary text-body-md font-medium hover:bg-accent hover:text-on-primary transition-colors"
+                >
+                  Join the next run
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BENEFITS — BLACK */}
+      <section id="benefits" className="px-4 md:px-8 py-20 md:py-32 bg-on-surface text-on-primary">
         <div className="max-w-[900px] mx-auto">
           <div className="flex items-center gap-3 mb-10 md:mb-14">
             <div className="w-1.5 h-1.5 bg-accent" />
-            <span className="font-mono text-label-md uppercase text-on-surface/60">
-              02 — 1-1 Sessions
+            <span className="font-mono text-label-md uppercase text-on-primary/60">
+              04 — 1-1 Sessions
             </span>
           </div>
-
-          <h2 className="text-2xl md:text-3xl font-light text-on-surface mb-12 md:mb-16 leading-snug">
+          <h2 className="text-2xl md:text-3xl font-light mb-12 md:mb-16 leading-snug">
             What you get as a
             <br />
             <span className="font-semibold">DND 1-1 client.</span>
           </h2>
-
           <ul className="space-y-0">
             {[
               "One free taster session",
@@ -374,12 +487,12 @@ useEffect(() => {
             ].map((benefit, i) => (
               <li
                 key={i}
-                className="flex items-center gap-6 py-5 border-b border-on-surface/10 group"
+                className="flex items-center gap-6 py-5 border-b border-on-primary/10 group"
               >
-                <span className="font-mono text-label-md text-on-surface/40 w-8">
+                <span className="font-mono text-label-md text-on-primary/40 w-8">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="text-body-md md:text-base text-on-surface flex-1">
+                <span className="text-body-md md:text-base flex-1">
                   {benefit}
                 </span>
                 <span className="w-1.5 h-1.5 bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -389,29 +502,26 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* PRICING — 1-1 plans, no prices, "Contact for pricing" */}
-      <section id="pricing" className="px-4 md:px-8 py-20 md:py-32">
+      {/* PRICING — WHITE */}
+      <section id="pricing" className="px-4 md:px-8 py-20 md:py-32 bg-surface text-on-surface">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex items-center gap-3 mb-10 md:mb-14">
             <div className="w-1.5 h-1.5 bg-accent" />
             <span className="font-mono text-label-md uppercase text-on-surface/60">
-              03 — 1-1 Coaching Plans
+              05 — 1-1 Coaching Plans
             </span>
           </div>
-
-          <h2 className="text-2xl md:text-3xl font-light text-on-surface mb-12 md:mb-16 leading-snug">
+          <h2 className="text-2xl md:text-3xl font-light mb-12 md:mb-16 leading-snug">
             Three paths.
             <br />
             <span className="font-semibold">One discipline.</span>
           </h2>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* FOUNDATION */}
             <div className="border border-on-surface p-8 md:p-10 bg-surface flex flex-col">
               <div className="font-mono text-label-md uppercase text-on-surface/50 mb-3">
                 Foundation
               </div>
-              <p className="text-2xl font-light text-on-surface mb-8">
+              <p className="text-2xl font-light mb-8">
                 For getting started <span className="font-semibold">with structure.</span>
               </p>
               <div className="h-px bg-on-surface/10 mb-8" />
@@ -439,7 +549,6 @@ useEffect(() => {
               </a>
             </div>
 
-            {/* TRANSFORMATION — featured */}
             <div className="border border-on-surface p-8 md:p-10 bg-on-surface text-on-primary relative flex flex-col">
               <div className="absolute top-6 right-6 w-1.5 h-1.5 bg-accent" />
               <div className="font-mono text-label-md uppercase text-accent mb-3">
@@ -474,12 +583,11 @@ useEffect(() => {
               </a>
             </div>
 
-            {/* VIP */}
             <div className="border border-on-surface p-8 md:p-10 bg-surface flex flex-col">
               <div className="font-mono text-label-md uppercase text-on-surface/50 mb-3">
                 VIP Performance
               </div>
-              <p className="text-2xl font-light text-on-surface mb-8">
+              <p className="text-2xl font-light mb-8">
                 Total optimisation, <span className="font-semibold">no compromise.</span>
               </p>
               <div className="h-px bg-on-surface/10 mb-8" />
@@ -513,152 +621,9 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* DND INSANITY PROGRAM (DIP) — group sessions, trending offer */}
-      <section id="dip" className="px-4 md:px-8 py-20 md:py-32 bg-on-surface text-on-primary relative overflow-hidden">
-        <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-accent" />
-
-        <div className="max-w-[1100px] mx-auto relative z-10">
-          <div className="inline-flex items-center gap-3 mb-10 md:mb-14 bg-accent px-4 py-2">
-            <div className="w-1.5 h-1.5 bg-on-primary animate-pulse" />
-            <span className="font-mono text-label-md uppercase text-on-primary tracking-widest">
-              Now Trending — Limited Spots
-            </span>
-          </div>
-
-          <span className="font-mono text-label-md uppercase text-on-primary/50 mb-4 block">
-            04 — DND Insanity Program
-          </span>
-
-          <h2 className="text-3xl md:text-5xl font-light leading-snug mb-8">
-            Stronger in numbers.
-            <br />
-            <span className="font-semibold">The DND Insanity Program (DIP).</span>
-          </h2>
-
-          <div className="grid md:grid-cols-12 gap-8 md:gap-16 mt-12 md:mt-16">
-            <div className="md:col-span-7 space-y-6 text-on-primary/80 text-body-md md:text-base leading-relaxed">
-              <p>
-                Three times a week, our members come together to train, sweat, and
-                level up side by side. No egos. No shortcuts. Just one hour of focused,
-                coach-led work with people who are all in.
-              </p>
-              <p>
-                Whether you're a regular 1-1 client or looking for a more affordable
-                way to train with structure, DIP delivers a proper workout and a real
-                sense of momentum.
-              </p>
-              <p className="text-on-primary font-semibold pt-4">
-                Come on time. Leave stronger.
-              </p>
-            </div>
-
-            <div className="md:col-span-5">
-              <div className="border border-on-primary/20 p-8 md:p-10">
-                <span className="font-mono text-label-md uppercase text-on-primary/50 mb-6 block">
-                  Weekly Schedule
-                </span>
-                <ul className="space-y-5">
-                  {[
-                    { day: "Tuesday", time: "1 hour" },
-                    { day: "Thursday", time: "1 hour" },
-                    { day: "Saturday", time: "1 hour" },
-                  ].map((slot, i) => (
-                    <li key={i} className="flex items-baseline justify-between border-b border-on-primary/10 pb-4 last:border-b-0 last:pb-0">
-                      <div className="flex items-baseline gap-4">
-                        <span className="font-mono text-label-md text-accent">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <span className="text-base md:text-lg font-medium">{slot.day}</span>
-                      </div>
-                      <span className="font-mono text-label-md text-on-primary/50">{slot.time}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="#contact"
-                  className="mt-10 block text-center w-full py-4 bg-accent text-on-primary text-body-md font-medium hover:bg-on-primary hover:text-on-surface transition-colors"
-                >
-                  Reserve your spot
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* RUN CLUB */}
-      <section id="runclub" className="relative px-4 md:px-8 py-20 md:py-32 bg-surface-low overflow-hidden">
-        <div className="max-w-[1100px] mx-auto">
-
-          <div className="inline-flex items-center gap-3 mb-10 md:mb-14 bg-accent px-4 py-2">
-            <div className="w-1.5 h-1.5 bg-on-primary animate-pulse" />
-            <span className="font-mono text-label-md uppercase text-on-primary tracking-widest">
-              Community — Monthly
-            </span>
-          </div>
-
-          <span className="font-mono text-label-md uppercase text-on-surface/50 mb-4 block">
-            05 — DND Run Club
-          </span>
-
-          <h2 className="text-3xl md:text-5xl font-light leading-snug text-on-surface mb-8">
-            One park. One run.
-            <br />
-            <span className="font-semibold">One community.</span>
-          </h2>
-
-          <div className="grid md:grid-cols-12 gap-8 md:gap-16 mt-12 md:mt-16">
-            <div className="md:col-span-7 space-y-6 text-on-surface/80 text-body-md md:text-base leading-relaxed">
-              <p>
-                Once a month, the DND community comes together for a relaxed run at
-                the park — followed by games, good energy, and free drinks from our
-                brand partners.
-              </p>
-              <p>
-                It's more than a workout. It's where training meets community,
-                where the people you sweat with become the people you build with.
-              </p>
-              <p className="text-on-surface font-semibold pt-4">
-                Open to all fitness levels. Bring a friend. Leave with new ones.
-              </p>
-            </div>
-
-            <div className="md:col-span-5">
-              <div className="border border-on-surface p-8 md:p-10 bg-surface">
-                <span className="font-mono text-label-md uppercase text-on-surface/50 mb-6 block">
-                  What to expect
-                </span>
-                <ul className="space-y-5">
-                  {[
-                    { num: "01", label: "Group run at the park" },
-                    { num: "02", label: "Games & community activities" },
-                    { num: "03", label: "Free drinks from brand partners" },
-                    { num: "04", label: "Photos, vibes, and good energy" },
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-baseline gap-4 border-b border-on-surface/10 pb-4 last:border-b-0 last:pb-0">
-                      <span className="font-mono text-label-md text-accent">{item.num}</span>
-                      <span className="text-base md:text-lg font-medium text-on-surface">{item.label}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-8 pt-6 border-t border-on-surface/10">
-                  <span className="font-mono text-label-md uppercase text-on-surface/50 block mb-2">Next run</span>
-                  <p className="text-lg font-semibold text-on-surface">Date TBC — watch this space</p>
-                </div>
-                <a
-                  href="#contact"
-                  className="mt-10 block text-center w-full py-4 bg-on-surface text-on-primary text-body-md font-medium hover:bg-accent hover:text-on-primary transition-colors"
-                >
-                  Join the next run
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* CTA */}
-      <section id="contact" className="px-4 md:px-8 py-20 md:py-32">
-        <div className="max-w-[1400px] mx-auto bg-on-surface p-8 md:p-20 relative overflow-hidden">
+      {/* CTA — BLACK */}
+      <section id="contact" className="px-4 md:px-8 py-20 md:py-32 bg-on-surface">
+        <div className="max-w-[1400px] mx-auto p-8 md:p-20 relative overflow-hidden">
           <div className="absolute top-6 md:top-8 right-6 md:right-8 w-1.5 h-1.5 bg-accent" />
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 md:items-end relative z-10">
             <div className="md:col-span-7">

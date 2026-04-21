@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const whatsappUrl =
-  "https://wa.me/447534498360?text=" +
+  "https://wa.me/447903824774?text=" +
   encodeURIComponent(
     "Hi, my name is ___. I'm interested in learning more about DND Fitness coaching."
   );

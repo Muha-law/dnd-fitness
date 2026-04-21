@@ -1,7 +1,7 @@
 export default function Popup({ badge, title, subtitle, body, ctaLabel, ctaHref, onClose }) {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-on-surface/70 backdrop-blur-sm">
-      <div className="relative bg-on-surface text-on-primary max-w-md w-full p-8 md:p-10 border border-accent">
+      <div className="relative bg-on-surface text-on-primary max-w-md w-full p-8 md:p-10 border" style={{ borderColor: "#004ced" }}>
         {/* Close button */}
         <button
           onClick={onClose}
@@ -14,7 +14,7 @@ export default function Popup({ badge, title, subtitle, body, ctaLabel, ctaHref,
         </button>
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-3 mb-6 bg-accent px-3 py-1.5">
+        <div className="inline-flex items-center gap-3 mb-6 px-3 py-1.5" style={{ backgroundColor: "#004ced" }}>
           <div className="w-1.5 h-1.5 bg-on-primary animate-pulse" />
           <span className="font-mono text-label-sm uppercase text-on-primary tracking-widest">
             {badge}
@@ -42,7 +42,8 @@ export default function Popup({ badge, title, subtitle, body, ctaLabel, ctaHref,
         <a
           href={ctaHref}
           onClick={onClose}
-          className="block text-center w-full py-4 bg-accent text-on-primary text-body-md font-medium hover:bg-on-primary hover:text-on-surface transition-colors"
+          style={{ backgroundColor: "#004ced" }}
+className="block text-center w-full py-4 text-on-primary text-body-md font-medium hover:bg-on-primary hover:text-on-surface transition-colors"
         >
           {ctaLabel}
         </a>

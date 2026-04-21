@@ -2,7 +2,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
 const whatsappUrl =
-  "https://wa.me/447534498360?text=" +
+  "https://wa.me/447903824774?text=" +
   encodeURIComponent(
     "Hi, my name is ___. I'm interested in learning more about DND Fitness coaching."
   );
