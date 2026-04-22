@@ -1,5 +1,6 @@
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const whatsappUrl =
   "https://wa.me/447903824774?text=" +
@@ -12,6 +13,15 @@ const calendlyUrl = "https://calendly.com/info-dndfitness/30min";
 export default function About() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <Helmet>
+      <title>About DND Fitness — Built on One Simple Principle</title>
+      <meta name="description" content="Learn about DND Fitness — UK coaching for busy professionals who refuse to let their health become an afterthought. A complete system for long-term strength and performance." />
+      <link rel="canonical" href="https://dndfitness.uk/about" />
+      <meta property="og:title" content="About DND Fitness — Built on One Simple Principle" />
+      <meta property="og:description" content="UK coaching for busy professionals. Not quick fixes. A complete system." />
+      <meta property="og:url" content="https://dndfitness.uk/about" />
+      <meta property="og:type" content="website" />
+    </Helmet>
       <Nav />
 
       {/* HERO */}
