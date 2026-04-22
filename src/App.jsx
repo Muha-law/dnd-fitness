@@ -19,7 +19,7 @@ const mailtoUrl =
   encodeURIComponent("Hi DND Team,\n\nI'd like to learn more about your coaching programs.\n\nThanks,");
 
 function HeroSlideshow() {
-  const images = ["/hero1.jpeg", "/hero2.jpeg", "/hero3.jpeg", "/hero4.jpeg", "/hero5.jpeg"];
+  const images = ["/hero3.jpeg", "/hero5.jpeg", "/hero2.jpeg", "/hero4.jpeg", "/hero1.jpeg"];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -502,7 +502,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* PRICING — WHITE */}
+      {/* PRICING — WHITE, carousel on mobile, grid on desktop */}
       <section id="pricing" className="px-4 md:px-8 py-20 md:py-32 bg-surface text-on-surface">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex items-center gap-3 mb-10 md:mb-14">
@@ -511,18 +511,30 @@ export default function App() {
               05 — 1-1 Coaching Plans
             </span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-light mb-12 md:mb-16 leading-snug">
+          <h2 className="text-2xl md:text-3xl font-light mb-4 md:mb-16 leading-snug">
             Three paths.
             <br />
             <span className="font-semibold">One discipline.</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="border border-on-surface p-8 md:p-10 bg-surface flex flex-col">
+
+          {/* Mobile swipe hint */}
+          <p className="md:hidden text-body-md text-on-surface/50 mb-6 font-mono uppercase tracking-widest text-label-md">
+            Swipe to compare →
+          </p>
+
+          <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0 scroll-smooth pb-4 md:pb-0">
+
+            {/* FOUNDATION */}
+            <div className="border border-on-surface p-8 md:p-10 bg-surface flex flex-col flex-shrink-0 w-[85%] md:w-auto snap-center">
               <div className="font-mono text-label-md uppercase text-on-surface/50 mb-3">
                 Foundation
               </div>
-              <p className="text-2xl font-light mb-8">
-                For getting started <span className="font-semibold">with structure.</span>
+              <div className="flex items-baseline gap-2 mb-6">
+                <span className="text-3xl md:text-4xl font-semibold">£500</span>
+                <span className="font-mono text-label-md text-on-surface/50">/month</span>
+              </div>
+              <p className="text-body-md text-on-surface/70 mb-8">
+                For getting started <span className="font-semibold text-on-surface">with structure.</span>
               </p>
               <div className="h-px bg-on-surface/10 mb-8" />
               <ul className="space-y-4 mb-10 flex-1">
@@ -545,17 +557,22 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="block text-center w-full py-3 border border-on-surface text-on-surface text-body-md hover:bg-on-surface hover:text-on-primary transition-colors"
               >
-                Contact for pricing
+                Get started
               </a>
             </div>
 
-            <div className="border border-on-surface p-8 md:p-10 bg-on-surface text-on-primary relative flex flex-col">
+            {/* TRANSFORMATION */}
+            <div className="border border-on-surface p-8 md:p-10 bg-on-surface text-on-primary relative flex flex-col flex-shrink-0 w-[85%] md:w-auto snap-center">
               <div className="absolute top-6 right-6 w-1.5 h-1.5 bg-accent" />
               <div className="font-mono text-label-md uppercase text-accent mb-3">
                 Transformation — Popular
               </div>
-              <p className="text-2xl font-light mb-8">
-                Real change, <span className="font-semibold">real accountability.</span>
+              <div className="flex items-baseline gap-2 mb-6">
+                <span className="text-3xl md:text-4xl font-semibold">£1,000</span>
+                <span className="font-mono text-label-md text-on-primary/50">/month</span>
+              </div>
+              <p className="text-body-md text-on-primary/70 mb-8">
+                Real change, <span className="font-semibold text-on-primary">real accountability.</span>
               </p>
               <div className="h-px bg-on-primary/20 mb-8" />
               <ul className="space-y-4 mb-10 flex-1">
@@ -579,16 +596,21 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="block text-center w-full py-3 bg-accent text-on-primary text-body-md hover:bg-on-primary hover:text-on-surface transition-colors"
               >
-                Contact for pricing
+                Get started
               </a>
             </div>
 
-            <div className="border border-on-surface p-8 md:p-10 bg-surface flex flex-col">
+            {/* VIP */}
+            <div className="border border-on-surface p-8 md:p-10 bg-surface flex flex-col flex-shrink-0 w-[85%] md:w-auto snap-center">
               <div className="font-mono text-label-md uppercase text-on-surface/50 mb-3">
                 VIP Performance
               </div>
-              <p className="text-2xl font-light mb-8">
-                Total optimisation, <span className="font-semibold">no compromise.</span>
+              <div className="flex items-baseline gap-2 mb-6">
+                <span className="text-3xl md:text-4xl font-semibold">£2,000</span>
+                <span className="font-mono text-label-md text-on-surface/50">/month</span>
+              </div>
+              <p className="text-body-md text-on-surface/70 mb-8">
+                Total optimisation, <span className="font-semibold text-on-surface">no compromise.</span>
               </p>
               <div className="h-px bg-on-surface/10 mb-8" />
               <ul className="space-y-4 mb-10 flex-1">
@@ -614,9 +636,10 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="block text-center w-full py-3 border border-on-surface text-on-surface text-body-md hover:bg-on-surface hover:text-on-primary transition-colors"
               >
-                Contact for pricing
+                Get started
               </a>
             </div>
+
           </div>
         </div>
       </section>
