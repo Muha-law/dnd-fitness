@@ -159,11 +159,11 @@ export default function App() {
       {popupStep === 1 && (
         <Popup
           badge="Now Trending"
-          title="The DND Insanity Program."
+          title="DND Boxing."
           subtitle="Limited Spots · 3 Sessions/Week"
-          body="Join the group workouts taking over DND. One hour, three times a week, training alongside people who are all in. Reserve your spot before we fill up."
+          body="Train like a fighter with DND Boxing. One hour, three times a week — technique, pad work, and conditioning coached from the ground up. Reserve your spot before we fill up."
           ctaLabel="See the program →"
-          ctaHref="#dip"
+          ctaHref="#boxing"
           onClose={() => setPopupStep(2)}
         />
       )}
@@ -321,35 +321,36 @@ export default function App() {
         </div>
       </section>
 
-      {/* DIP — BLACK */}
-      <section id="dip" className="px-4 md:px-8 py-20 md:py-32 bg-on-surface text-on-primary relative overflow-hidden">
+      {/* BOXING — BLACK */}
+      <section id="boxing" className="px-4 md:px-8 py-20 md:py-32 bg-on-surface text-on-primary relative overflow-hidden">
         <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-accent" />
         <div className="max-w-[1100px] mx-auto relative z-10">
           <div className="inline-flex items-center gap-3 mb-10 md:mb-14 bg-accent px-4 py-2">
             <div className="w-1.5 h-1.5 bg-on-primary animate-pulse" />
             <span className="font-mono text-label-md uppercase text-on-primary tracking-widest">
-              Now Trending — Limited Spots
+              New — Limited Spots
             </span>
           </div>
           <span className="font-mono text-label-md uppercase text-on-primary/50 mb-4 block">
-            02 — DND Insanity Program
+            02 — DND Boxing
           </span>
           <h2 className="text-3xl md:text-5xl font-light leading-snug mb-8">
-            Stronger in numbers.
+            Train like a fighter.
             <br />
-            <span className="font-semibold">The DND Insanity Program (DIP).</span>
+            <span className="font-semibold">DND Boxing.</span>
           </h2>
           <div className="grid md:grid-cols-12 gap-8 md:gap-16 mt-12 md:mt-16">
             <div className="md:col-span-7 space-y-6 text-on-primary/80 text-body-md md:text-base leading-relaxed">
               <p>
-                Three times a week, our members come together to train, sweat, and
-                level up side by side. No egos. No shortcuts. Just one hour of focused,
-                coach-led work with people who are all in.
+                Three times a week, step into coach-led boxing sessions built around
+                technique, pad work, and conditioning. No egos. No shortcuts. Just one
+                hour of focused work that sharpens your reflexes and builds real
+                strength.
               </p>
               <p>
-                Whether you're a regular 1-1 client or looking for a more affordable
-                way to train with structure, DIP delivers a proper workout and a real
-                sense of momentum.
+                Whether you're brand new to boxing or looking for a high-intensity way
+                to complement your 1-1 training, DND Boxing delivers a proper workout
+                and a real sense of progress.
               </p>
               <p className="text-on-primary font-semibold pt-4">
                 Come on time. Leave stronger.

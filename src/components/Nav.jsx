@@ -44,27 +44,27 @@ export default function Nav() {
   return (
     <nav className={"fixed top-0 left-0 right-0 z-50 backdrop-blur-[20px] transition-colors duration-300 " + navBg}>
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-4 md:py-6 flex items-center">
-        <div className="hidden md:flex items-center gap-8 flex-1">
+        <div className="hidden md:flex items-center gap-6 flex-1">
           <Link to="/" className={"text-body-md hover:text-accent transition-colors " + navTextColor}>Home</Link>
           <Link to="/about" className={"text-body-md hover:text-accent transition-colors " + navTextColor}>About</Link>
           <a
-            href="#dip"
-            onClick={(e) => handleHashClick(e, "#dip")}
-            className={"text-body-md hover:text-accent transition-colors cursor-pointer " + navTextColor}
+            href="#boxing"
+            onClick={(e) => handleHashClick(e, "#boxing")}
+            className={"text-body-md hover:text-accent transition-colors cursor-pointer whitespace-nowrap " + navTextColor}
           >
-            DIP
+            Boxing
           </a>
           <a
             href="#runclub"
             onClick={(e) => handleHashClick(e, "#runclub")}
-            className={"text-body-md hover:text-accent transition-colors cursor-pointer " + navTextColor}
+            className={"text-body-md hover:text-accent transition-colors cursor-pointer whitespace-nowrap " + navTextColor}
           >
             Run Club
           </a>
           <a
             href="#benefits"
             onClick={(e) => handleHashClick(e, "#benefits")}
-            className={"text-body-md hover:text-accent transition-colors cursor-pointer " + navTextColor}
+            className={"text-body-md hover:text-accent transition-colors cursor-pointer whitespace-nowrap " + navTextColor}
           >
             Benefits
           </a>
@@ -80,7 +80,7 @@ export default function Nav() {
           <span className={"w-6 h-0.5 bg-current transition-transform " + (menuOpen ? "-rotate-45 -translate-y-2" : "")} />
         </button>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center mx-6 md:mx-10 flex-shrink-0">
           <Link to="/">
             <img
               src="/logo.png"
@@ -117,11 +117,11 @@ export default function Nav() {
           <Link to="/" onClick={() => setMenuOpen(false)} className="block text-body-md text-on-surface">Home</Link>
           <Link to="/about" onClick={() => setMenuOpen(false)} className="block text-body-md text-on-surface">About</Link>
           <a
-            href="#dip"
-            onClick={(e) => handleHashClick(e, "#dip")}
+            href="#boxing"
+            onClick={(e) => handleHashClick(e, "#boxing")}
             className="block text-body-md text-on-surface cursor-pointer"
           >
-            DIP
+            Boxing
           </a>
           <a
             href="#runclub"
